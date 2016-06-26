@@ -1,4 +1,4 @@
-/* Divide & Conquer approach demonstration using Merge Sort */
+/* Clean implementation of Divide & Conquer approach using MergeSort*/
 
 #include <iostream>
 using namespace std;

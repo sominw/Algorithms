@@ -1,37 +1,49 @@
-//
-//  main.cpp
-//  Insertion Sort
-//
-//  Created by Somin Wadhwa on 24/06/16.
-//  Copyright © 2016 Somin Wadhwa. All rights reserved.
-//
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <bitset>
+#include <cstdio>
+#include <vector>
+#include <cstdlib>
+#include <numeric>
+#include <sstream>
 #include <iostream>
+#include <algorithm>
 using namespace std;
-int main(){
-    int const n = 50;
-    int a[n];
-    int x = 0;
-    cout << "Enter the number of elements: ";
-    cin >> x;
-    for (int i = 0;i < x;i++){
-        cin >> a[i];
-    }
-    int key = 0 ;
-    int p = 0 ;
-    for (int j = 1;j < x;j++){
-        key = a[j];
-        p = j - 1;
-        while (p >= 0 && a[p] > key){
-            a[p+1] = a[p];
-            p = p-1;
+void insertionSort(vector <int>  ar) {
+    int key,i;
+    for (int j=1;j < ar.size(); j++){
+        key = ar[j];
+        i = j - 1;
+        while (i>=0 && ar[i] > key){
+        	ar[i+1] = ar[i];
+        	i = i - 1;
         }
-        a[p+1] = key;
-        
+        ar[i+1] = key;
+        for(int _ar_i=0; _ar_i<ar.size(); _ar_i++) {
+        cout << ar[_ar_i] << " "; 
     }
-    cout << endl <<  "Sorted Array is: ";
-    for (int i = 0;i < x;i++){
-        cout << a[i] << endl;
+    cout << endl;  
     }
     
+
+}
+int main(void) {
+    vector <int>  _ar;
+    int _ar_size;
+    cin >> _ar_size;
+    for(int _ar_i=0; _ar_i<_ar_size; _ar_i++) {
+        int _ar_tmp;
+        cin >> _ar_tmp;
+        _ar.push_back(_ar_tmp); 
+    }
+
+    insertionSort(_ar);
+	  
     return 0;
 }

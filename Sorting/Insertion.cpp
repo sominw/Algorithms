@@ -25,10 +25,9 @@ void insertionSort(vector <int>  ar) {
         	i = i - 1;
         }
         ar[i+1] = key;
-        for(int _ar_i=0; _ar_i<ar.size(); _ar_i++) {
-        cout << ar[_ar_i] << " "; 
-    }
-    cout << endl;  
+        }
+    for(int _ar_i=0; _ar_i<ar.size(); _ar_i++) {
+        cout << ar[_ar_i] << " ";   
     }
     
 

@@ -5,6 +5,7 @@
 */
 	
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 int partition(int A[],int p,int r){
 	int x = A[r-1];
@@ -23,6 +24,7 @@ int partition(int A[],int p,int r){
 	A[i+1] = x;
 	return i+1;
 }
+
 void quick_sort(int A[],int p,int r){
 	if (p<r){
 		int q = partition(A,p,r);

@@ -45,7 +45,7 @@ def count_inversions(s):
     
 def main():
     inputs = []
-    f = open("/Users/sominwadhwa/Desktop/IntegerArray.txt", "r")
+    f = open("/Users/sominwadhwa/Desktop/Algorithms/Counting Inversions/IntegerArray.txt", "r")
     
     for line in f.readlines():
         inputs.append(int(line.rstrip("\n")))

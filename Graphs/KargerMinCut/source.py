@@ -5,7 +5,7 @@ Created on Fri Sep 30 21:36:24 2016
 @author: sominwadhwa
 
 A simple and elegant implementation of Karger's Min Cut Algorithm with 
-adjacency list representation
+adjacency list representation of an undirected graph
 """
 
 import random

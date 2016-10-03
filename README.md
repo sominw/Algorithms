@@ -1,3 +1,3 @@
 # Algorithms
-Collection of some important algorithms implemented by me!
+Collection of some algorithms implemented by me.
 

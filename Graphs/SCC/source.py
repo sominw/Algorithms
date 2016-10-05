@@ -15,7 +15,7 @@ from itertools import groupby #Construct and return iterators with common groupi
 from collections import defaultdict
 
 sys.setrecursionlimit(10 ** 6) #Prevent overflow of the C stack and crashing Python
-resource.setrlimit(resource.RLIMIT_STACK, (resource.RLIM_INFINITY, resource.RLIM_INFINITY))
+
 class Track(object):
     #Keeping track of 'current' parameters
     def __init__(self):
@@ -71,10 +71,9 @@ def scc(graph):
 def main():
     start = time.time()
     graph = defaultdict(list)
-    with open('SCC.txt') as ginput:
+    with open('SCC2.txt') as ginput:
         for line in ginput:
-            X = line.strip().split()
-            x,y =  int(X[0]), int(X[1])
+            x,y =  int(line.split()[0]), int(line.split()[1])
             graph[x].append(y)
     t1 = time.time() - start
     print ("Initialization completed in ",t1," seconds\n\nComputing SCCs...")

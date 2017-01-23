@@ -3,7 +3,7 @@ Created on Mon Jan 23 15:48:26 2017
 
 @author: sominwadhwa
 
-Paritioning around a given value
+Palindrome or NOT
 """
 
 class Node(object):
@@ -40,20 +40,30 @@ class LinkedList(object):
                 current = current.next
             current.prev.next = current.next
             current.next.prev = current.prev
-    def removeDups(self):
-        if (self.head is None):
-            print ("Fasle")
+    def checkPalindrome(self):
+        if self.head.next == None:
+            print ("True")
+            return
         else:
-            p1 = self.head
-            while (p1.next != None):
-                p2 = p1
-                while (p2.next != None):
-                    if (p1.data == p2.next.data):
-                        p2.next = p2.next.next
-                    else:
-                        p2 = p2.next
-                p1 = p1.next
-        
+            start = self.head
+            end = self.head
+            flag = 0
+            while (end.next != None):
+                end = end.next
+            while (start.next != None):
+                if (start.data != end.data):
+                    flag = 1
+                    break
+                else:
+                    pass
+                start = start.next
+                end = end.prev
+            if (flag==0):
+                print ("PALINDROME!!")
+                return
+            elif (flag == 1):
+                print("NOT A PALINDROME!!!")
+                return
     def printList(self):
         node = self.head
         while (node):
@@ -64,12 +74,9 @@ newList = LinkedList()
 newList.append(1)
 newList.append(2)
 newList.append(3)
-newList.append(4)
-newList.append(5)
-newList.append(6)
-newList.append(3)
+newList.append(2)
+newList.append(1)
 newList.printList()
-newList.removeDups()
 print ("--------------")
-newList.printList()
+newList.checkPalindrome()
 

@@ -1,5 +1,6 @@
 """
 Floyd-Warshall algorithm for computing All-Pairs Shortest Paths.
+(Calculation for "shortest shortest path")
 """
 
 
@@ -87,6 +88,6 @@ def main(fPath="g1.txt"):
     shortestVal = shortestPath(subproblems, numNodes)
     print("Shortest of all-pairs shortest paths value: {}".format(shortestVal))
 
-
+#Solution for all 3 graphs = -19
 if __name__ == '__main__':
     main()   

@@ -3,7 +3,7 @@ Created on Mon Jan 23 15:48:26 2017
 
 @author: sominwadhwa
 
-Remove Duplicates
+Paritioning around a given value
 """
 
 class Node(object):

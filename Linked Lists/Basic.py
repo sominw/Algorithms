@@ -8,9 +8,10 @@ A basic linked list
 """
 
 class Node(object):
-    def __init__(self, data, next = None):
+    def __init__(self, data, next = None, prev = None):
         self.data = data
         self.next = next
+        self.prev = prev
     def __str__(self):
         return str(self.data)
         
@@ -29,6 +30,7 @@ class LinkedList(object):
                 node = node.next
             new_node = Node(data)
             node.next = new_node
+            new_node.prev = node
             return
     def printList(self):
         node = self.head

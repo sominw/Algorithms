@@ -52,6 +52,17 @@ class LinkedList(object):
                 current = current.next
             current.prev.next = current.next
             current.next.prev = current.prev
+    def reverse(self):
+        p1 = self.head
+        p2 = p1.next
+        p1.next = None
+        p1.prev = p2
+        while (p2 is not None):
+            p2.prev = p2.next
+            p2.next = p1 
+            p1 = p2
+            p2 = p2.prev
+        self.head = p1
     def printList(self):
         node = self.head
         while (node):
@@ -67,5 +78,6 @@ newList.append(5)
 newList.append(6)
 newList.appendAfterKey(36,3)
 newList.delete(3)
+newList.reverse()
 newList.printList()
 

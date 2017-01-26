@@ -1,3 +1,3 @@
 # Algorithms
-Collection of some algorithms implemented by me.
+Implementation of some algorithms (& problems) for practise.
 

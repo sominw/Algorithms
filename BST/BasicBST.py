@@ -44,7 +44,34 @@ class BST(object):
 		self.root = None
 		self.size = 0
 
-
 	def length(self):
 		return self.size
+
+	def _put(self,key,value, curr):
+		if key <= curr.key:
+			if curr.hasLeftChild():
+				self._put(key, value, curr.hasLeftChild())
+			else:
+				curr.leftChild = TreeNode(self,key,value, parent = curr)
+		else:
+			if curr.hasRightChild():
+				self._put(key, value, curr.hasRightChild())
+			else:
+				curr.rightChild = TreeNode(self, key, value, parent = curr)
+	def put(self, key, value):
+		if self.root:
+			self._put(key, value, self.root)
+		else:
+			self.root = TreeNode(key, value)
+		self.size = self.size + 1
+
+	def __setitem__(self,k,v):
+		self.put(k,v)
+
+if __name__ == '__main__':
+	myTree = BST()
+	myTree[2] = "Second Node"
+	myTree[1] = "First Node"
+	myTree[3] = "Third Node"
+	print ("Insertion Order: 2 1 3")
 

@@ -38,7 +38,6 @@ class TreeNode(object):
 			self.rightChild.parent = self
 
 
-
 class BST(object):
 	def __init__(self):
 		self.root = None
@@ -52,12 +51,13 @@ class BST(object):
 			if curr.hasLeftChild():
 				self._put(key, value, curr.hasLeftChild())
 			else:
-				curr.leftChild = TreeNode(self,key,value, parent = curr)
+				curr.leftChild = TreeNode(key,value, parent = curr)
 		else:
 			if curr.hasRightChild():
 				self._put(key, value, curr.hasRightChild())
 			else:
-				curr.rightChild = TreeNode(self, key, value, parent = curr)
+				curr.rightChild = TreeNode(key, value, parent = curr)
+
 	def put(self, key, value):
 		if self.root:
 			self._put(key, value, self.root)
@@ -68,10 +68,42 @@ class BST(object):
 	def __setitem__(self,k,v):
 		self.put(k,v)
 
+	def _get(self,key,curr):
+		if not curr:
+			return None
+		elif curr.key == key:
+			return curr
+		elif key < curr.key:
+			return self._get(key,curr.hasLeftChild())
+		else:
+			return self._get(key,curr.hasRightChild())
+
+	def get(self, key):
+		if self.root:
+			item = self._get(key, self.root)
+			if item:
+				return item.value
+			else:
+				return None
+		else:
+			return None
+
+	def __getitem__(self,key):
+		return self.get(key)
+
+	def __contains__(self,key):
+		if self._get(key, self.root):
+			return True
+		else:
+			return False
+
 if __name__ == '__main__':
 	myTree = BST()
 	myTree[2] = "Second Node"
 	myTree[1] = "First Node"
 	myTree[3] = "Third Node"
 	print ("Insertion Order: 2 1 3")
+	print (myTree[2])
+	print (myTree[1])
+	print (myTree[3])
 

@@ -34,9 +34,9 @@ class TreeNode(object):
 		self.rightChild = rightChild
 		if self.hasLeftChild():
 			self.leftChild.parent = self
-		if self.hasRightChild() == self:
+		if self.hasRightChild():
 			self.rightChild.parent = self
-		
+
 
 
 class BST(object):

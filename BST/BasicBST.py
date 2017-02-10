@@ -27,7 +27,7 @@ class TreeNode(object):
 	def hasBothChildren(self):
 		return (self.leftChild and self.rightChild)
 
-	def replaceNodeData(self, key, value, leftChild, rightChild):
+	def replaceNodeData(self, key, value, leftChild, rightChild): #Deletion of Root
 		self.key = key
 		self.value = value
 		self.leftChild = leftChild
@@ -96,6 +96,23 @@ class BST(object):
 			return True
 		else:
 			return False
+
+	def remove(self,curr):
+		if curr.isLeaf():
+			if curr == curr.parent.hasLeftChild():
+				curr.parent.leftChild = None
+			else:
+				curr.parent.rightChild = None
+		elif curr.hasBothChildren():
+			pass
+		else: #Has Only One Child
+			
+
+	def delete(self,key):
+		rem = _get(key,self.root)
+		self.remove(rem)
+	def __delitem__(self,key):
+		self.delete(key)
 
 if __name__ == '__main__':
 	myTree = BST()

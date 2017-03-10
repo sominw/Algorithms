@@ -106,7 +106,17 @@ class BST(object):
 		elif curr.hasBothChildren():
 			pass
 		else: #Has Only One Child
-			
+			if curr.hasLeftChild():
+				if curr.isLeftChild():
+					curr.leftChild.parent = curr.parent
+					curr.parent.leftChild = curr.leftChild
+				elif curr.isRightChild():
+					curr.leftChild.parent = curr.parent
+					curr.parent.rightChild = curr.leftChild
+				else:
+					curr.replaceNodeData(curr.leftChild.key, curr.leftChild.value,curr.leftChild.leftChild,curr.leftChild.rightChild)
+			else:
+				
 
 	def delete(self,key):
 		rem = _get(key,self.root)
